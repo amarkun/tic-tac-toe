@@ -3,7 +3,7 @@
 import pdb
 import argparse
 
-from game import Game
+from lib.game import Game
 
 #TODO currently there are three sources of num_entries
 # 1. a dict of X and O with lists containing tuples of (row, col) numbers
