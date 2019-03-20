@@ -1,3 +1,4 @@
+import pdb
 class Board():
     def __init__(self, size=3):
         self.size = size
@@ -9,12 +10,13 @@ class Board():
         self.board_template = ('%s\n%s\n'%(col_template, row_template))*2+col_template
     def handle_input(self):
         self.num_values += 1
-    def display_board(self, entries):
+    def display_board(self, p1, p2):
         '''
         entries: Dict<String: List<Tuple<Int, Int>>>
         Takes Dictionary with keys X and O, and values a list of ituples with int values like (row, col)
         Iterate through the letters and fill out final_entries with either X or O
         '''
+        entries = {p1.letter: p1.choices, p2.letter: p2.choices}
         final_entry_list = [' ']*(self.size)**2
         for letter in entries:
             entry_list = entries[letter]
