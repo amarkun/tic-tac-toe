@@ -11,6 +11,7 @@ class Game():
     def setup_game(self):
         player1_letter = input("What letter would Player 1 like to user? (X or O)?: ").upper()
         if player1_letter not in ['X', 'O']:
+            #NOTE the player won't see this as is
             print('Invalid input! Automatically selecting X for Player 1 and O for Player 2')
             player1_letter = 'X'
             player2_letter = 'O'
@@ -75,6 +76,7 @@ class Game():
         return self.p1.choices + self.p2.choices
 
     def play_game(self):
+        self.setup_game()
         winner = False
         print('Game Start!')
         while winner is False:
