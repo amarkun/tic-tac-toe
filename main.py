@@ -6,7 +6,10 @@ import argparse
 
 from lib.game import Game
 
-def main():
+def getArgs():
+    '''
+    Handles command line input and returns the parser object
+    '''
     parser = argparse.ArgumentParser()
     parser.add_argument(
             '-s','--size',
@@ -14,8 +17,17 @@ def main():
             type=int,
             dest='size'
     )
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def main():
+    args = getArgs()
+    #check args
     size = 3 if args.size is None else args.size
+    if size <3 or size >10:
+        print('Please enter a size in the range 3-10')
+        return 0
+    #enter game loop
     play_game = True
     while play_game:
         #initialize game
